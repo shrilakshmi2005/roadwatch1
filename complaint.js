@@ -62,7 +62,7 @@ function detectAndSubmit() {
 
     // SEND TO BACKEND
 
-    fetch("http://127.0.0.1:5000/detect", {
+    fetch("https://roadwatch1-1.onrender.com/detect", {
 
         method: "POST",
 
