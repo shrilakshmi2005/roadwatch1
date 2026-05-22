@@ -30,7 +30,7 @@ function changeEmail() {
   user.email = newEmail;
   localStorage.setItem("user", JSON.stringify(user));
 
-  alert("✅ Email updated");
+  alert("Email updated");
 }
 
 
@@ -47,7 +47,7 @@ function changePassword() {
   user.password = newPass;
   localStorage.setItem("user", JSON.stringify(user));
 
-  alert("✅ Password updated");
+  alert("Password updated");
 }
 
 
@@ -55,7 +55,7 @@ function changePassword() {
 function clearData() {
   localStorage.clear();
   alert("All data cleared");
-  window.location.href = "code.html";
+  window.location.href = "index.html";
 }
 
 
@@ -63,8 +63,8 @@ function clearData() {
 function logout() {
   localStorage.removeItem("role");
 
-  alert("✅ Logged out");
-  window.location.href = "code.html";
+  alert("Logged out");
+  window.location.href = "index.html";
 }
 
 
@@ -82,12 +82,12 @@ function changeEmail() {
   let newEmail = document.getElementById("newEmail").value.trim();
 
   if (!newEmail) {
-    alert("⚠️ Enter new email");
+    alert("Enter new email");
     return;
   }
 
   user.email = newEmail;
   localStorage.setItem("user", JSON.stringify(user));
 
-  alert("✅ Email updated");
+  alert("Email updated");
 }
