@@ -11,11 +11,11 @@ CORS(app)
 
 
 
-MODEL_PATH = "best.pt"
+MODEL_PATH = "yolov8n.pt"
 
 try:
 
-    model = YOLO(MODEL_PATH)
+    model = YOLO("yolov8n.pt")
 
     print(" Model Loaded Successfully")
 
