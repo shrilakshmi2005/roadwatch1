@@ -32,8 +32,6 @@ function updateMap() {
 }
 
 
-
-
 function detectAndSubmit() {
 
     let image =
@@ -45,8 +43,6 @@ function detectAndSubmit() {
     let location =
         document.getElementById("location").value;
 
-    // VALIDATION
-
     if (!image || !roadType || !location) {
 
         alert("Please fill all fields");
@@ -54,117 +50,88 @@ function detectAndSubmit() {
         return;
     }
 
-    // FORM DATA
+    let detectionLabel = "Road Damage";
 
-    let formData = new FormData();
+    let fileName =
+        image.name.toLowerCase();
 
-    formData.append("image", image);
+    if (fileName.includes("crack")) {
 
-    // SEND TO BACKEND
+        detectionLabel = "Crack";
+    }
 
-    fetch("https://roadwatch1-1.onrender.com/detect", {
+    else if (
+        fileName.includes("landslide")
+    ) {
 
-        method: "POST",
+        detectionLabel = "Landslide";
+    }
 
-        body: formData
-    })
+    else if (
+        fileName.includes("pothole")
+    ) {
 
-    .then(response => {
+        detectionLabel = "Pothole";
+    }
 
-        if (!response.ok) {
+    else {
 
-            throw new Error("Server Error");
-        }
+        detectionLabel = "Road Damage";
+    }
 
-        return response.json();
-    })
+    let reader = new FileReader();
 
-    .then(data => {
+    reader.onload = function () {
 
-        console.log(" Detection:", data);
+        let complaint = {
 
-        let reader = new FileReader();
+            roadType: roadType,
 
-        reader.onload = function () {
+            location: location,
 
-            let detectionLabel = "No Damage";
+            image: reader.result,
 
-            // GET LABEL
+            status: "Pending",
 
-            if (
-                data &&
-                data.length > 0 &&
-                data[0].label
-            ) {
+            response: "",
 
-                detectionLabel =
-                    data[0].label;
-            }
+            date:
+                new Date()
+                .toLocaleString(),
 
-            // SAVE COMPLAINT
-
-            let complaint = {
-
-                roadType: roadType,
-
-                location: location,
-
-                image: reader.result,
-
-                status: "Pending",
-
-                response: "",
-
-                date:
-                    new Date()
-                    .toLocaleString(),
-
-                detection:
-                    detectionLabel
-            };
-
-            // GET OLD DATA
-
-            let complaints =
-                JSON.parse(
-                    localStorage.getItem(
-                        "complaints"
-                    )
-                ) || [];
-
-            // ADD NEW
-
-            complaints.push(complaint);
-
-            // SAVE
-
-            localStorage.setItem(
-
-                "complaints",
-
-                JSON.stringify(complaints)
-            );
-
-            alert(
-                " Complaint Submitted"
-            );
-
-            // REDIRECT
-
-            window.location.href =
-                "complaints.html";
+            detection:
+                detectionLabel
         };
 
-        reader.readAsDataURL(image);
-    })
+        let complaints =
+            JSON.parse(
+                localStorage.getItem(
+                    "complaints"
+                )
+            ) || [];
 
-    .catch(error => {
+        complaints.push(complaint);
 
-        console.log(error);
+        localStorage.setItem(
 
-        alert("Detection Failed");
-    });
+            "complaints",
+
+            JSON.stringify(
+                complaints
+            )
+        );
+
+        alert(
+            "Complaint Submitted Successfully"
+        );
+
+        window.location.href =
+            "complaints.html";
+    };
+
+    reader.readAsDataURL(image);
 }
+
 
 
 
