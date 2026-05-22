@@ -17,7 +17,7 @@ function saveProfile() {
 
   localStorage.setItem("user", JSON.stringify(user));
 
-  alert("✅ Profile saved!");
+  alert("Profile saved!");
 }
 
 window.onload = loadProfile;
@@ -36,7 +36,7 @@ function saveProfile() {
   let password = document.getElementById("password").value.trim();
 
   if (!name || !email || !phone || !password) {
-    alert("⚠️ All fields are required");
+    alert(" All fields are required");
     return;
   }
 
@@ -44,5 +44,5 @@ function saveProfile() {
 
   localStorage.setItem("user", JSON.stringify(user));
 
-  alert("✅ Profile saved!");
+  alert("Profile saved!");
 }
