@@ -85,7 +85,7 @@ function registerUser(){
     );
 
     window.location.href =
-        "login.html";
+        "index.html";
 }
 
 
@@ -177,5 +177,5 @@ function loginUser(){
             );
 
             window.location.href =
-                "login.html";
+                "index.html";
         }
