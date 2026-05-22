@@ -1,0 +1,268 @@
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:Arial, sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        135deg,
+        #1e3c72,
+        #2a5298,
+        #4facfe
+    );
+
+    color:white;
+
+    overflow-x:hidden;
+}
+
+
+
+.main-container{
+
+    text-align:center;
+
+    padding-top:60px;
+}
+
+
+
+
+.main-container h1{
+
+    font-size:55px;
+
+    color:orange;
+
+    margin-bottom:20px;
+
+    text-shadow:
+    2px 2px 10px rgba(0,0,0,0.5);
+}
+
+
+
+
+.subtitle{
+
+    width:80%;
+
+    margin:auto;
+
+    font-size:22px;
+
+    line-height:1.6;
+
+    margin-bottom:50px;
+}
+
+
+
+
+.login-box{
+
+    width:420px;
+
+    margin:auto;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    background:
+    rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.4);
+
+    animation:fadeIn 1s ease;
+}
+
+
+
+
+.login-box h2{
+
+    font-size:40px;
+
+    margin-bottom:30px;
+}
+
+
+
+
+.login-box input{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-bottom:20px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    outline:none;
+}
+
+
+
+.login-box button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #ff9800,
+        #ff5722
+    );
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.login-box button:hover{
+
+    transform:scale(1.05);
+}
+
+
+
+
+.login-box a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:16px;
+}
+
+.login-box a:hover{
+
+    text-decoration:underline;
+}
+
+
+
+
+.profile-icon{
+
+    position:fixed;
+
+    top:20px;
+
+    right:20px;
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:white;
+
+    color:#1e3c72;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.3);
+}
+
+
+
+
+.dropdown{
+
+    position:fixed;
+
+    top:90px;
+
+    right:20px;
+
+    background:white;
+
+    color:black;
+
+    border-radius:15px;
+
+    width:220px;
+
+    display:none;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 20px rgba(0,0,0,0.3);
+}
+
+.dropdown p{
+
+    padding:15px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.dropdown p:hover{
+
+    background:#f0f0f0;
+}
+
+
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}

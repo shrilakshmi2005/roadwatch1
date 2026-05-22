@@ -1,0 +1,132 @@
+body{
+
+    margin:0;
+
+    font-family:Arial, sans-serif;
+
+    background:#f2f2f2;
+
+    text-align:center;
+}
+
+/* TITLE */
+
+h1{
+
+    color:#1e3a5f;
+
+    margin-top:30px;
+}
+
+/* CONTAINER */
+
+#responseContainer{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:25px;
+
+    padding:30px;
+}
+
+/* CARD */
+
+.card{
+
+    width:350px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    text-align:left;
+
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* IMAGE */
+
+.card img{
+
+    width:100%;
+
+    border-radius:15px;
+
+    margin-top:15px;
+}
+
+/* STATUS */
+
+.pending{
+
+    color:orange;
+
+    font-weight:bold;
+}
+
+.resolved{
+
+    color:green;
+
+    font-weight:bold;
+}
+
+/* TEXTAREA */
+
+textarea{
+
+    width:100%;
+
+    height:100px;
+
+    margin-top:15px;
+
+    padding:10px;
+
+    border-radius:10px;
+
+    border:1px solid gray;
+
+    resize:none;
+
+    box-sizing:border-box;
+}
+
+/* BUTTON */
+
+button{
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#1e3a5f;
+
+    color:white;
+
+    cursor:pointer;
+
+    margin-top:15px;
+
+    font-size:16px;
+}
+
+button:hover{
+
+    background:#16314f;
+}
+
+/* BUTTON BOX */
+
+.button-box{
+
+    margin-bottom:40px;
+}

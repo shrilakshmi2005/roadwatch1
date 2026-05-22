@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Road Details</title>
+
+    <link rel="stylesheet" href="style4.css">
+
+</head>
+
+<body>
+
+    <h1>ROAD INFRASTRUCTURE INFORMATION 🚧</h1>
+
+  
+
+    <div>
+
+        <h2>ABOUT ROAD CONSTRUCTION</h2>
+
+        <p>
+            Road construction is a fundamental aspect of civil engineering and infrastructure development that has evolved significantly over centuries. Roads support transportation, trade, safety, and connectivity across regions.
+        </p>
+
+    </div>
+
+   
+
+    <div>
+
+        <h2>PROCESS OF ROAD CONSTRUCTION</h2>
+
+        <p>
+            The construction of roads involves surveying, planning, excavation, subgrade preparation, laying base layers, asphalt or concrete surfacing, drainage systems, and road safety measures.
+        </p>
+
+    </div>
+
+    
+
+    <div>
+
+        <h2>TYPES OF ROADS</h2>
+
+        <p>
+            Roads include National Highways, State Highways, Village Roads, Main Roads, Concrete Roads, and Asphalt Roads.
+        </p>
+
+    </div>
+
+    
+
+    <div>
+
+        <h2>IMPORTANCE OF ROADS</h2>
+
+        <p>
+            Roads improve transportation, economic growth, tourism, emergency services, and public connectivity.
+        </p>
+
+    </div>
+
+    
+
+    <div>
+
+        <h2>FUTURE OF ROAD INFRASTRUCTURE</h2>
+
+        <p>
+            Smart roads, AI monitoring, IoT sensors, and autonomous transportation systems will improve future road infrastructure.
+        </p>
+
+    </div>
+
+    
+
+    <div class="center-box">
+
+        <h2>Check Road Details</h2>
+
+        
+
+        <input
+            type="text"
+            id="locationInput"
+            placeholder="Enter location">
+
+        <br><br>
+
+        
+
+        <button onclick="getRoadDetails()">
+
+            Get Details
+
+        </button>
+
+       
+
+        <div id="roadResult"></div>
+
+    </div>
+
+    
+
+    <script>
+
+        function getRoadDetails(){
+
+            let location =
+                document.getElementById(
+                    "locationInput"
+                ).value;
+
+            let result =
+                document.getElementById(
+                    "roadResult"
+                );
+
+            if(location.trim() == ""){
+
+                alert("Enter location");
+
+                return;
+            }
+
+            // ROAD DATABASE
+
+            let details = {
+
+                "mailapore":
+                    "Road condition is Moderate. Some potholes detected.",
+
+                "madurai":
+                    "Road condition is Poor. Crack and potholes detected.",
+
+                "trichy":
+                    "Road condition is Good. Recently maintained road.",
+
+                "chennai":
+                    "Road condition is Excellent. Smart road monitoring active.",
+
+                "coimbatore":
+                    "Road condition is Fair. Minor cracks detected.",
+
+                "salem":
+                    "Road condition is Poor. Landslide risk detected."
+            };
+
+            let key =
+                location.toLowerCase();
+
+            // SHOW RESULT
+
+            if(details[key]){
+
+                result.innerHTML = `
+
+                    <div class="result-box">
+
+                        <h3>Road Details</h3>
+
+                        <p>${details[key]}</p>
+
+                    </div>
+                `;
+            }
+
+            else{
+
+                result.innerHTML = `
+
+                    <div class="result-box">
+
+                        <h3>Road Details</h3>
+
+                        <p>
+                        No road information available
+                        for this location.
+                        </p>
+
+                    </div>
+                `;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

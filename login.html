@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>RoadWatch Login</title>
+
+    <link rel="stylesheet"
+          href="login.css">
+
+</head>
+
+<body>
+
+   
+
+    <div class="main-container">
+
+       
+
+        <h1>
+
+            WELCOME TO ROADWATCH WEBSITE!
+
+        </h1>
+
+       
+
+        <p class="subtitle">
+
+            Users can view detailed information about ongoing road construction
+            on our website. Users can easily report and share road-related
+            issues directly through RoadWatch.
+
+        </p>
+
+       
+
+        <div class="login-box">
+
+            <h2>RoadWatch</h2>
+
+           
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter Email">
+
+            
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter Password">
+
+            
+
+            <button
+                onclick="loginUser()">
+
+                Login
+
+            </button>
+
+            <br><br>
+
+           
+
+            <a href="register.html">
+
+                Create New Account
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- PROFILE MENU -->
+
+    <div class="profile-icon"
+         onclick="toggleMenu()">
+
+         👤
+
+    </div>
+
+    <div id="dropdown"
+         class="dropdown">
+
+        <p onclick="window.location.href='profile.html'">
+
+            👤 Profile
+
+        </p>
+
+        <p onclick="window.location.href='settings.html'">
+
+            ⚙️ Settings
+
+        </p>
+
+        <p onclick="logout()">
+
+            🚪 Logout
+
+        </p>
+
+    </div>
+
+    
+
+    <script src="auth.js"></script>
+
+    
+
+</body>
+
+</html>

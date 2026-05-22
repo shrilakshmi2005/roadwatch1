@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Report Road Issue</title>
+  <link rel="stylesheet" href="style5.css">
+</head>
+
+<body>
+
+<div class="form-box">
+
+  <h2>Report Road Issue</h2>
+
+  <input type="file" id="image" onchange="previewImage()">
+  <br><br>
+
+  <div class="image-container">
+    <img id="preview">
+
+    <div id="aiBox"></div>
+    <div id="aiLabel">pothole</div>
+  </div>
+
+  <br>
+
+
+  <input type="text" id="location" placeholder="Road Name / Location">
+  <br><br>
+
+  <button onclick="submitComplaint()">Submit</button>
+
+  <div id="detectionResult"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

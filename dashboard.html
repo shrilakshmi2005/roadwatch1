@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet"
+          href="style1.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <div class="header-box">
+
+        <h1>ROAD MONITORING SYSTEM</h1>
+
+        <p>
+            Enhancing transparency in road infrastructure
+            through citizen reporting
+        </p>
+
+    </div>
+
+    <!-- STATS -->
+
+    <div id="stats"></div>
+
+    <!-- DASHBOARD BOXES -->
+
+    <div class="dashboard-container">
+
+        <!-- REPORT -->
+
+        <div class="dashboard-box"
+             onclick="window.location.href='complaint.html'">
+
+            <h2>📍 REPORT ROAD ISSUE</h2>
+
+        </div>
+
+        <!-- ROAD DETAILS -->
+
+        <div class="dashboard-box"
+             onclick="window.location.href='road.html'">
+
+            <h2>🛣 ROAD DETAILS</h2>
+
+        </div>
+
+        <!-- VIEW COMPLAINTS -->
+
+        <div class="dashboard-box"
+             onclick="window.location.href='complaints.html'">
+
+            <h2>📋 VIEW COMPLAINTS</h2>
+
+        </div>
+
+        <!-- QUERY RESPONSES -->
+
+        <div class="dashboard-box"
+             onclick="window.location.href='responses.html'">
+
+            <h2>⚙ QUERY RESPONSES</h2>
+
+        </div>
+
+    </div>
+
+    <!-- BUTTONS -->
+
+    <div class="button-container">
+
+        <button onclick="openPopup()">
+
+            Authority Mode
+
+        </button>
+
+        <button onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </div>
+
+    <!-- PASSWORD POPUP -->
+
+    <div id="passwordPopup"
+         class="popup">
+
+        <div class="popup-content">
+
+            <h2>🔐 Authority Login</h2>
+
+            <input type="password"
+                   id="authorityPassword"
+                   placeholder="Enter Password">
+
+            <br><br>
+
+            <button onclick="checkPassword()">
+
+                Login
+
+            </button>
+
+            <button onclick="closePopup()">
+
+                Cancel
+
+            </button>
+
+            <p id="errorText"></p>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

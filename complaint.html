@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Report Road Issue</title>
+
+    <link rel="stylesheet" href="complaint.css">
+
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <h1> REPORT ROAD ISSUE</h1>
+
+        <!-- IMAGE -->
+
+        <div class="input-box">
+
+            <label>Upload Road Image</label>
+
+            <input type="file"
+                   id="image"
+                   accept="image/*"
+                   onchange="previewImage()">
+
+        </div>
+
+        
+
+        <img id="preview">
+
+       
+
+        <div class="input-box">
+
+            <label>Type of Road</label>
+
+            <select id="roadType">
+
+                <option value="">Select Road Type</option>
+
+                <option>Street Road</option>
+
+                <option>Highway</option>
+
+                <option>Village Road</option>
+
+                <option>Main Road</option>
+
+            </select>
+
+        </div>
+
+        
+
+        <div class="input-box">
+
+            <label>Road Location</label>
+
+            <input type="text"
+                   id="location"
+                   placeholder="Enter Road Location"
+                   onkeyup="updateMap()">
+
+        </div>
+
+   
+
+        <iframe id="mapFrame"></iframe>
+
+       
+
+        <div class="button-box">
+
+            <button type="button"
+                    onclick="detectAndSubmit()">
+
+                Detect & Submit
+
+            </button>
+
+            <button type="button"
+                    onclick="goBack()">
+
+                Back
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="complaint.js"></script>
+
+</body>
+
+</html>
