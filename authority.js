@@ -13,10 +13,10 @@ function loadData(data = null) {
     let statusClass = c.status === "Resolved" ? "status-resolved" : "status-pending";
 
     let content = `
-      <p><b>📍 Location:</b> ${c.location}</p>
+      <p><b> Location:</b> ${c.location}</p>
       <p><b>Status:</b> <span class="${statusClass}">${c.status}</span></p>
-      <p><b>💬 Response:</b> ${c.response || "No response yet"}</p>
-      <p><b>🕒 Responded On:</b> ${c.date || "Not yet"}</p>
+      <p><b> Response:</b> ${c.response || "No response yet"}</p>
+      <p><b> Responded On:</b> ${c.date || "Not yet"}</p>
 
       <p><b>🔍 Issues:</b> ${
         c.detections && c.detections.length > 0
@@ -27,7 +27,7 @@ function loadData(data = null) {
       <img src="${c.image}" width="250">
     `;
 
-    // ONLY AUTHORITY CAN EDIT (ONLY IF NOT RESOLVED)
+   
     if (role === "authority" && c.status !== "Resolved") {
       content += `
         <textarea id="res-${index}" placeholder="Write response...">${c.response || ""}</textarea>
@@ -47,14 +47,13 @@ function loadData(data = null) {
 }
 
 
-// ================= SUBMIT RESPONSE =================
 function submitRes(index) {
   let complaints = JSON.parse(localStorage.getItem("complaints")) || [];
 
   let text = document.getElementById(`res-${index}`).value.trim();
 
   if (!text) {
-    alert("⚠️ Enter response");
+    alert(" Enter response");
     return;
   }
 
@@ -64,12 +63,12 @@ function submitRes(index) {
 
   localStorage.setItem("complaints", JSON.stringify(complaints));
 
-  alert("✅ Response submitted!");
+  alert("Response submitted!");
   loadData();
 }
 
 
-// ================= FILTER =================
+
 function filterData(type) {
   let complaints = JSON.parse(localStorage.getItem("complaints")) || [];
 
@@ -77,9 +76,8 @@ function filterData(type) {
     complaints = complaints.filter(c => c.status === type);
   }
 
-  loadData(complaints);  // ✅ correct call
+  loadData(complaints);  
 }
 
 
-// ================= LOAD =================
 window.onload = loadData;
