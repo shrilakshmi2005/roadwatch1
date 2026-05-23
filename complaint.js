@@ -50,128 +50,90 @@ function detectAndSubmit() {
         return;
     }
 
-    let formData =
-        new FormData();
+    let detectionLabel =
+        "Road Damage";
 
-    formData.append(
-        "image",
-        image
-    );
+    let fileName =
+        image.name.toLowerCase();
 
-    fetch(
-        "https://roadwatch1-1.onrender.com/detect",
-        {
+    if (
+        fileName.includes("pothole")
+    ) {
 
-            method: "POST",
+        detectionLabel =
+            "Pothole";
+    }
 
-            body: formData
-        }
-    )
+    else if (
+        fileName.includes("crack")
+    ) {
 
-    .then(response => {
+        detectionLabel =
+            "Crack";
+    }
 
-        if (!response.ok) {
+    else if (
+        fileName.includes("landslide")
+    ) {
 
-            throw new Error(
-                "Server Error"
-            );
-        }
+        detectionLabel =
+            "Landslide";
+    }
 
-        return response.json();
-    })
+    let reader =
+        new FileReader();
 
-    .then(data => {
+    reader.onload = function () {
 
-        console.log(
-            "Detection:",
-            data
-        );
+        let complaint = {
 
-        let reader =
-            new FileReader();
+            roadType: roadType,
 
-        reader.onload =
-        function () {
+            location: location,
 
-            let detectionLabel =
-                "No Damage";
+            image: reader.result,
 
-            if (
-                data &&
-                data.length > 0 &&
-                data[0].label
-            ) {
+            status: "Pending",
 
-                detectionLabel =
-                    data[0].label;
-            }
+            response: "",
 
-            let complaint = {
+            date:
+                new Date()
+                .toLocaleString(),
 
-                roadType:
-                    roadType,
-
-                location:
-                    location,
-
-                image:
-                    reader.result,
-
-                status:
-                    "Pending",
-
-                response:
-                    "",
-
-                date:
-                    new Date()
-                    .toLocaleString(),
-
-                detection:
-                    detectionLabel
-            };
-
-            let complaints =
-                JSON.parse(
-                    localStorage.getItem(
-                        "complaints"
-                    )
-                ) || [];
-
-            complaints.push(
-                complaint
-            );
-
-            localStorage.setItem(
-
-                "complaints",
-
-                JSON.stringify(
-                    complaints
-                )
-            );
-
-            alert(
-                "Complaint Submitted"
-            );
-
-            window.location.href =
-                "complaints.html";
+            detection:
+                detectionLabel
         };
 
-        reader.readAsDataURL(
-            image
+        let complaints =
+            JSON.parse(
+                localStorage.getItem(
+                    "complaints"
+                )
+            ) || [];
+
+        complaints.push(
+            complaint
         );
-    })
 
-    .catch(error => {
+        localStorage.setItem(
 
-        console.log(error);
+            "complaints",
+
+            JSON.stringify(
+                complaints
+            )
+        );
 
         alert(
-            "Detection Failed"
+            "Complaint Submitted Successfully"
         );
-    });
+
+        window.location.href =
+            "complaints.html";
+    };
+
+    reader.readAsDataURL(image);
 }
 
 
