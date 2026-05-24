@@ -51,7 +51,10 @@ function detectAndSubmit() {
     }
 
     let detectionLabel =
-        "Road Damage";
+    document.getElementById(
+        "damageType"
+    ).value;
+
 
     let fileName =
         image.name.toLowerCase();
@@ -136,7 +139,14 @@ function detectAndSubmit() {
     reader.readAsDataURL(image);
 }
 
+if (!detectionLabel) {
 
+    alert(
+        "Please select damage type"
+    );
+
+    return;
+}
 
 function goBack() {
 
