@@ -1,6 +1,4 @@
-
-
-function registerUser(){
+function registerUser() {
 
     let name =
         document.getElementById(
@@ -17,22 +15,22 @@ function registerUser(){
             "password"
         ).value.trim();
 
-    // EMPTY CHECK
+    if (
 
-    if(
         name === "" ||
+
         email === "" ||
+
         password === ""
-    ){
+
+    ) {
 
         alert(
-            " Fill all fields"
+            "Please fill all fields"
         );
 
         return;
     }
-
-    // GET OLD USERS
 
     let users =
         JSON.parse(
@@ -41,35 +39,29 @@ function registerUser(){
             )
         ) || [];
 
-    // CHECK EXISTING EMAIL
-
     let existingUser =
         users.find(user =>
 
             user.email === email
         );
 
-    if(existingUser){
+    if (existingUser) {
 
         alert(
-            " Email already registered"
+            "Email already registered"
         );
 
         return;
     }
 
-    // NEW USER
-
     let user = {
 
-        name:name,
+        name: name,
 
-        email:email,
+        email: email,
 
-        password:password
+        password: password
     };
-
-    // SAVE
 
     users.push(user);
 
@@ -91,7 +83,8 @@ function registerUser(){
 
 
 
-function loginUser(){
+
+function loginUser() {
 
     let email =
         document.getElementById(
@@ -103,7 +96,20 @@ function loginUser(){
             "password"
         ).value.trim();
 
-    // GET USERS
+    if (
+
+        email === "" ||
+
+        password === ""
+
+    ) {
+
+        alert(
+            "Please enter email and password"
+        );
+
+        return;
+    }
 
     let users =
         JSON.parse(
@@ -111,8 +117,6 @@ function loginUser(){
                 "roadwatchUsers"
             )
         ) || [];
-
-    // FIND USER
 
     let matchedUser =
         users.find(user =>
@@ -122,60 +126,85 @@ function loginUser(){
             user.password === password
         );
 
-    // CHECK LOGIN
-
-    if(matchedUser){
+    if (matchedUser) {
 
         localStorage.setItem(
 
             "loggedInUser",
 
-            JSON.stringify(matchedUser)
+            JSON.stringify(
+                matchedUser
+            )
+        );
+
+        // USER MODE
+
+        localStorage.setItem(
+            "mode",
+            "USER MODE"
         );
 
         alert(
-            " Login Successful"
+            "Login Successful"
         );
 
         window.location.href =
             "dashboard.html";
     }
 
-    else{
+    else {
 
         alert(
             "Incorrect Email or Password"
         );
     }
 }
-   function toggleMenu(){
 
-            let menu =
-                document.getElementById(
-                    "dropdown"
-                );
 
-            if(menu.style.display === "block"){
 
-                menu.style.display = "none";
-            }
 
-            else{
 
-                menu.style.display = "block";
-            }
-        }
+function toggleMenu() {
 
-        function logout(){
+    let menu =
+        document.getElementById(
+            "dropdown"
+        );
 
-            localStorage.removeItem(
-                "loggedInUser"
-            );
+    if (
+        menu.style.display ===
+        "block"
+    ) {
 
-            alert(
-                " Logged Out"
-            );
+        menu.style.display =
+            "none";
+    }
 
-            window.location.href =
-                "index.html";
-        }
+    else {
+
+        menu.style.display =
+            "block";
+    }
+}
+
+
+
+
+
+function logout() {
+
+    localStorage.removeItem(
+        "loggedInUser"
+    );
+
+    localStorage.removeItem(
+        "mode"
+    );
+
+    alert(
+        "Logged Out Successfully"
+    );
+
+    window.location.href =
+        "index.html";
+}
