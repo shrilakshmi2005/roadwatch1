@@ -64,33 +64,6 @@ function detectAndSubmit() {
         return;
     }
 
-    let fileName =
-        image.name.toLowerCase();
-
-    if (
-        fileName.includes("pothole")
-    ) {
-
-        detectionLabel =
-            "Pothole";
-    }
-
-    else if (
-        fileName.includes("crack")
-    ) {
-
-        detectionLabel =
-            "Crack";
-    }
-
-    else if (
-        fileName.includes("landslide")
-    ) {
-
-        detectionLabel =
-            "Landslide";
-    }
-
     let reader =
         new FileReader();
 
