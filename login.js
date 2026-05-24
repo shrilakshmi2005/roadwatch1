@@ -80,3 +80,16 @@ function login(){
     window.location.href =
         "dashboard.html";
 }
+function logout() {
+
+    localStorage.removeItem(
+        "loggedInUser"
+    );
+
+    alert(
+        "Logged Out Successfully"
+    );
+
+    window.location.href =
+        "index.html";
+}
