@@ -80,10 +80,15 @@ function login(){
     window.location.href =
         "dashboard.html";
 }
+
 function logout() {
 
     localStorage.removeItem(
         "loggedInUser"
+    );
+
+    localStorage.removeItem(
+        "mode"
     );
 
     alert(
@@ -91,5 +96,5 @@ function logout() {
     );
 
     window.location.href =
-        "index.html";
+        "login.html";
 }
