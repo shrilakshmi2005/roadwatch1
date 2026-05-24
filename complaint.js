@@ -68,6 +68,7 @@ function detectAndSubmit() {
         new FileReader();
 
     reader.onload = function () {
+        console.log(detectionLabel);
 
         let complaint = {
 
