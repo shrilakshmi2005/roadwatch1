@@ -291,3 +291,27 @@ button:hover{
 
     margin-top:10px;
 }
+.mode-bar{
+
+    width: 100%;
+
+    padding: 15px;
+
+    text-align: center;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: white;
+}
+
+.user-mode{
+
+    background: #007BFF;
+}
+
+.authority-mode{
+
+    background: #d9534f;
+}
