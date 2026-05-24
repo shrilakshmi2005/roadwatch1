@@ -51,10 +51,18 @@ function detectAndSubmit() {
     }
 
     let detectionLabel =
-    document.getElementById(
-        "damageType"
-    ).value;
+        document.getElementById(
+            "damageType"
+        ).value;
 
+    if (!detectionLabel) {
+
+        alert(
+            "Please select damage type"
+        );
+
+        return;
+    }
 
     let fileName =
         image.name.toLowerCase();
@@ -139,14 +147,7 @@ function detectAndSubmit() {
     reader.readAsDataURL(image);
 }
 
-if (!detectionLabel) {
 
-    alert(
-        "Please select damage type"
-    );
-
-    return;
-}
 
 function goBack() {
 
